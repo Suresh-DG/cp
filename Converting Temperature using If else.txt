@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -52,4 +53,60 @@ while(continueConversion){
     }
     printf("Temperature conversion program terminated,\n");
     return 0;
+=======
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <stdio.h>
+
+int main()
+{
+float temperature,convertedTemp;
+int sourceUnit,targetUnit;
+int continueConversion = 1;
+while(continueConversion){
+    printf("Enter the temperature:");
+    scanf("%f",&temperature);
+    printf("Select the source unit:\n");
+    printf("1.Celsius\n");
+    printf("2.Fahrenheit\n");
+    printf("3.Kelvin\n");
+    printf("Enter choice (1-3):");
+    scanf("%d",&sourceUnit);
+    printf("Select the target unit:\n");
+    printf("1.Celsius\n");
+    printf("2.Fahrenheit\n");
+    printf("3.Kelvin\n");
+    printf("Enter choice (1-3):");
+    scanf("%d",&targetUnit);
+    if (sourceUnit==1 && targetUnit==2){
+        convertedTemp=(temperature*9/5)+32;
+    }
+    else if (sourceUnit==1 && targetUnit==3){
+        convertedTemp=temperature+273.15;
+    }
+    else if (sourceUnit==2 && targetUnit==1){
+        convertedTemp=(temperature-32)*5/9;
+    }
+    else if (sourceUnit==2 && targetUnit==3){
+        convertedTemp=(temperature-32)*5/9+273.15;
+    }
+    else if (sourceUnit==3 && targetUnit==1){
+        convertedTemp=temperature-273.15;
+    }else if (sourceUnit==3 && targetUnit==2){
+        convertedTemp=(temperature-273.15)*9/5+32;
+    }else if (sourceUnit==targetUnit){
+        convertedTemp=temperature;
+    printf("Source and Target units are the same.\n");
+    }else{
+        printf("Invalid choice. Please try again.\n");
+        continue;
+    }
+    printf("Converted Temperature:%2f\n",convertedTemp);
+    printf("Do you want to convert another temperature?(1 for Yes, 0 for No):");
+    scanf("%d",&continueConversion);
+    }
+    printf("Temperature conversion program terminated,\n");
+    return 0;
+>>>>>>> af5fe0332fe3c43447454a1f230d0502f8571a96
 }

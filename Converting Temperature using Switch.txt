@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -118,3 +119,125 @@ int main()
 
     return 0;
 }
+=======
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int t1,c2,ft,c1;
+    printf("MENU\n");
+        printf("1 IS FOR CELCIUS\n");
+                printf("2 IS FOR FEHRENHEIT\n");
+                        printf("3 IS FOR KELVIN\n");
+                                printf("ENTER YOUR CHOICE\n");
+                                scanf("%d",&c1);
+
+                                switch (c1){
+                                case 1:
+                                    {
+                printf("1 IS FOR FEHRENHEIT\n");
+                        printf("2 IS FOR KELVIN\n");
+                                printf("ENTER THE UNIT OF TEMPERATURE IN WHICH YOU WANT TO CONVERT:\n");
+                                scanf("%d",&c2);
+                                printf("ENTER THE TEMPERATUTE \n");
+                                scanf("%d",&t1);
+                                switch (c2){
+                                case 1:
+                                    {
+                                       ft=(t1*(1.8))+32;
+                                       printf("CONVERTED TEMPERTURE FROM CELCIUS TO FEHRENHEIT  IS: %d",ft);
+                                       break;
+                                    }
+                                case 2:
+                                    {
+                                      ft=t1+273;
+                                       printf("CONVERTED TEMPERTURE FROM CELCIUS TO KELVIN IS: %d",ft);
+                                       break;
+                                    }
+                                default :
+                                    {
+                                        printf("WRONG INPUT");
+                                    }
+                                }
+                                    break;
+
+                                }
+
+
+
+
+
+                                case 2:
+                                    {
+                printf("1 IS FOR CELCIUS\n");
+                        printf("2 IS FOR KELVIN\n");
+                                printf("ENTER THE UNIT OF TEMPERATURE IN WHICH YOU WANT TO CONVERT:\n");
+                                scanf("%d",&c2);
+                                 printf("ENTER THE TEMPERATUTE \n");
+                                scanf("%d",&t1);
+                                switch (c2){
+                                case 1:
+                                    {
+                                       ft=((t1-32))*(0.5555);
+                                       printf("CONVERTED TEMPERTURE FROM FEHRENHEIT TO CELCIUS  IS: %d ",ft);
+                                       break;
+                                    }
+                                case 2:
+                                    {
+                                      ft=((t1-32)*(0.5555))+ 273 ;
+                                       printf("CONVERTED TEMPERTURE FROM FEHRENHEIT TO KELVIN IS: %d",ft);
+                                       break;
+                                    }
+                                default :
+                                    {
+                                        printf("WRONG INPUT");
+                                    }
+                                    }
+                                    break;
+                                }
+
+
+
+
+                                case 3:
+                                    {
+                printf("1 IS FOR CELCIUS\n");
+                        printf("2 IS FOR FEHRENHEIT\n");
+                                printf("ENTER THE UNIT OF TEMPERATURE IN WHICH YOU WANT TO CONVERT:\n");
+                                scanf("%d",&c2);
+                                 printf("ENTER THE TEMPERATUTE \n");
+                                scanf("%d",&t1);
+                                switch (c2){
+                                case 1:
+                                    {
+                                       ft=t1-273;
+                                       printf("CONVERTED TEMPERTURE FROM KELVIN TO CELCIUS  IS: %d",ft);
+                                       break;
+                                    }
+                                case 2:
+                                    {
+                                      ft=((t1-273)*(1.8))+32;
+                                       printf("CONVERTED TEMPERTURE FROM KELVIN TO FEHRENHEIT IS: %d",ft);
+                                       break;
+                                    }
+                                default :
+                                    {
+                                        printf("WRONG INPUT");
+                                    }
+                                    }
+                                    break;
+                                    }
+                                    default :
+                                    {
+                                        printf("WRONG INPUT");
+                                    }
+                                    break;
+                                }
+
+
+
+
+    return 0;
+}
+>>>>>>> af5fe0332fe3c43447454a1f230d0502f8571a96
