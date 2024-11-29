@@ -1,0 +1,96 @@
+#include <stdio.h>
+
+#define MAX_SIZE 100
+
+void traverse(int arr[], int n) {
+    printf("Array Elements: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+void insert(int arr[], int *n, int pos, int count, int values[]) {
+    if (*n + count > MAX_SIZE) {
+        printf("Array cannot accommodate %d more elements. Max size exceeded.\n", count);
+        return;
+    }
+    if (pos < 0 || pos > *n) {
+        printf("Invalid position.\n");
+        return;
+    }
+
+    for (int i = *n - 1; i >= pos; i--) {
+        arr[i + count] = arr[i]; // Shift elements to make room
+    }
+    for (int i = 0; i < count; i++) {
+        arr[pos + i] = values[i]; // Insert new values
+    }
+    *n += count;
+    printf("Inserted %d elements at position %d successfully.\n", count, pos);
+}
+
+void delete(int arr[], int *n, int pos) {
+    if (*n == 0) {
+        printf("Array is empty, cannot delete.\n");
+        return;
+    }
+    if (pos < 0 || pos >= *n) {
+        printf("Invalid position.\n");
+        return;
+    }
+    for (int i = pos; i < *n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    (*n)--;
+    printf("Deleted element at position %d successfully.\n", pos);
+}
+
+int main() {
+    int arr[MAX_SIZE];
+    int n = 0; // Initial size of the array
+    int choice, pos, value, count, values[MAX_SIZE];
+
+    do {
+        printf("\nMenu:\n");
+        printf("1. Insert\n");
+        printf("2. Delete\n");
+        printf("3. Traverse\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+        case 1:
+            printf("Enter position to insert elements (0 to %d): ", n);
+            scanf("%d", &pos);
+            printf("Enter the number of elements to insert: ");
+            scanf("%d", &count);
+            if (count <= 0) {
+                printf("Invalid count.\n");
+                break;
+            }
+            printf("Enter %d elements: ", count);
+            for (int i = 0; i < count; i++) {
+                scanf("%d", &values[i]);
+            }
+            insert(arr, &n, pos, count, values);
+            break;
+        case 2:
+            printf("Enter position to delete (0 to %d): ", n - 1);
+            scanf("%d", &pos);
+            delete(arr, &n, pos);
+            break;
+        case 3:
+            traverse(arr, n);
+            break;
+        case 4:
+            printf("Exiting program.\n");
+            break;
+        default:
+            printf("Invalid choice.\n");
+        }
+    } while (choice != 4);
+
+    return 0;
+}
